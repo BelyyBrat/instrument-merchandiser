@@ -16,7 +16,7 @@ function InstrumentTile(props) {
     opacity: ".5",
   };
   const finalCardStyle =
-    props.quantity === 0 ? { ...cardStyle, ...outOfStockStyle } : cardStyle;
+    props.quantity <= 0 ? { ...cardStyle, ...outOfStockStyle } : cardStyle;
 
   const optionA = "Out of stock";
   const optionB = `Items in Stock: ${props.quantity}`;

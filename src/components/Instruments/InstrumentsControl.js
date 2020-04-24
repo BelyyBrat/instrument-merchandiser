@@ -144,6 +144,14 @@ class InstrumentsControl extends React.Component {
   };
 
   handleEditingInstrument = (editedInstrument) => {
+    // Still saving numbers as strings intially
+    editedInstrument.price = parseInt(editedInstrument.price);
+    const quantityNumber = parseInt(editedInstrument.quantity);
+    if (quantityNumber <= 0) {
+      editedInstrument.quantity = 0;
+    } else {
+      editedInstrument.quantity = quantityNumber;
+    }
     const editedInstrumentList = this.state.masterInstrumentList
       .filter((instrument) => instrument.id !== editedInstrument.id)
       .concat(editedInstrument);
